@@ -6,10 +6,7 @@
 <template>
   <AppHeader />
   <div class="w-full min-h-screen flex flex-col justify-between scroll-smooth">
-    <div class="h-fit flex flex-col mx-auto">
-      <div class="w-full" />
       <RouterView />
-    </div>
     <AppFooter />
   </div>
 </template>

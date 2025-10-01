@@ -1,6 +1,11 @@
+<script setup lang="ts">
+import ContentLayout from '@/layouts/contentLayout.vue';
+
+</script>
+
 <template>
-    <div>
+    <ContentLayout>
         <h1 class="text-5xl font-bold">Portfolio Page</h1>
         <p>Welcome to the portfolio page of the application.</p>
-    </div>
+    </ContentLayout>
 </template>

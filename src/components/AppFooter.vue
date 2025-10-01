@@ -19,7 +19,7 @@
     </div>
 
     <div>
-      © 2024 Gray Tsao. All rights reserved.
+      © 2025 Gray Tsao. All rights reserved.
     </div>
   </div>
 </template>

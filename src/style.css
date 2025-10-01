@@ -24,7 +24,11 @@ body {
       opacity: 0.6;
       backdrop-filter: blur(12px)
     }
-    50% {
+    40% {
+      opacity: 1;
+      backdrop-filter: blur(18px)
+    }
+    60% {
       opacity: 1;
       backdrop-filter: blur(18px)
     }

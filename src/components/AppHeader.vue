@@ -1,11 +1,13 @@
 <script setup lang="ts">
-    import { ref, onMounted, onUnmounted, onUpdated } from 'vue';
-    import { useRouter } from 'vue-router';
+    import { ref, onMounted, onUnmounted, onUpdated, computed } from 'vue';
+    import { useRouter, useRoute } from 'vue-router';
 
     const isScrolled = ref(false);
     const isAnimate = ref(false);
-    const nowRoute = ref('/');
     const router = useRouter();
+    const route = useRoute();
+
+    const nowRoute = computed(() => route.path);
 
     const handleScroll = () => {
         isScrolled.value = window.scrollY > 0;
@@ -14,7 +16,6 @@
     const moving = async (goal: string) => {
         if (nowRoute.value === goal) return;
         isAnimate.value = true;
-        nowRoute.value = goal;
     
         setTimeout(() => {
             router.push(goal);

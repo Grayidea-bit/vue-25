@@ -23,7 +23,9 @@
         height: 'h-100',
     });
 
-    const backgroundClass = computed(() => `bg-black/${props.bgTransparencyLevel}`);
+    const overlayStyle = computed(() => ({
+        backgroundColor: `rgba(0, 0, 0, ${props.bgTransparencyLevel / 100})`
+    }));
 </script>
 
 
@@ -31,11 +33,14 @@
 
 <template>
     <div :class="['h-100 w-full overflow-hidden flex items-center justify-center', props.height]">
-    <div :class="['absolute h-100 w-full', backgroundClass]"></div>  
-    <span :class="['absolute z-10 text-6xl font-bold', props.textColor]">{{ props.title }}</span>
-    <img 
-        class="w-full object-cover"
-        :src="props.backgroundImage" 
-        alt="Hero Image" />
+        <div 
+            class="absolute h-100 w-full" 
+            :style="overlayStyle"
+        ></div>  
+        <span :class="['absolute z-10 text-6xl font-bold', props.textColor]">{{ props.title }}</span>
+        <img 
+            class="w-full object-cover"
+            :src="props.backgroundImage" 
+            alt="Hero Image" />
     </div>
 </template>

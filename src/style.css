@@ -11,3 +11,30 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+@theme {
+  --animate-page-transition: page-transition 0.6s ease-in-out;
+
+  @keyframes page-transition {
+    0% {
+      opacity: 0;
+      backdrop-filter: blur(0);
+    }
+    25% {
+      opacity: 0.6;
+      backdrop-filter: blur(12px)
+    }
+    50% {
+      opacity: 1;
+      backdrop-filter: blur(18px)
+    }
+    75% {
+      opacity: 0.5;
+      backdrop-filter: blur(9px)
+    }
+    100% {
+      opacity: 0;
+      backdrop-filter: blur(0);
+    }
+  }
+}

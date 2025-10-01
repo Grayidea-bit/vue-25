@@ -1,6 +1,13 @@
+<script setup lang="ts">
+import HeroTitle from '@/components/HeroTitle.vue';
+
+</script>
+
 <template>
-    <div>
-        <h1 class="text-5xl font-bold">Main Page</h1>
-        <p>Welcome to the main page of the application.Welcome to the main page of the application.Welcome to the main page of the application.Welcome to the main page of the application.Welcome to the main page of the application.</p>
+    <div class="w-full h-96 relative">
+        <HeroTitle />   
+        <div>
+
+        </div>
     </div>
 </template>

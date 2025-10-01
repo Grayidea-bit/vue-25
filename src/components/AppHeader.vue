@@ -44,7 +44,7 @@
 
 <template>
     <div :class="[
-        'sticky top-0 w-full h-25 bg-gray-800 text-white flex items-center justify-between  transition-all duration-300 px-75',
+        'sticky top-0 w-full h-25 bg-gray-800 text-white flex items-center justify-between  transition-all duration-300 px-75 z-1000',
         { 'opacity-90': isScrolled, 'opacity-100': !isScrolled }
     ]">
         <h1 class="text-2xl font-bold text-white cursor-pointer" @click="moving('/')">Gray's Work</h1>

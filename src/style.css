@@ -41,4 +41,14 @@ body {
       backdrop-filter: blur(0);
     }
   }
+
+    @keyframes hover {
+    0% {
+      size-scale: 1;
+    }
+    100% {
+      opacity: 0;
+      backdrop-filter: blur(0);
+    }
+  }
 }

@@ -5,8 +5,8 @@ import ContentLayout from '@/layouts/contentLayout.vue';
 </script>
 
 <template>
-    <div class="w-full h-96 relative">
-        <HeroTitle />   
+    <div class="w-full h-fit relative">
+        <HeroTitle title="NO HESITATION." text-color="text-beige "/>   
         <ContentLayout>
             <div>
                 Main Page Content

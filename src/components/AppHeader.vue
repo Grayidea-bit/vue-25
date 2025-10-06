@@ -1,9 +1,10 @@
 <script setup lang="ts">
-    import { ref, onMounted, onUnmounted, onUpdated, computed } from 'vue';
+    import { ref, onMounted, onUnmounted, computed } from 'vue';
     import { useRouter, useRoute } from 'vue-router';
+    import { usePageTransition } from '@utils/usePageNavigator'
 
     const isScrolled = ref(false);
-    const isAnimate = ref(false);
+    const { isAnimate, navigateTo } = usePageTransition();
     const router = useRouter();
     const route = useRoute();
 
@@ -13,23 +14,19 @@
         isScrolled.value = window.scrollY > 0;
     };
 
-    const moving = async (goal: string) => {
-        if (nowRoute.value === goal) return;
-        isAnimate.value = true;
+    // const moving = async (goal: string) => {
+    //     if (nowRoute.value === goal) return;
+    //     isAnimate.value = true;
     
-        setTimeout(() => {
-            router.push(goal);
-            // isAnimate.value = false;
-        }, 300);
+    //     setTimeout(() => {
+    //         router.push(goal);
+    //         // isAnimate.value = false;
+    //     }, 300);
 
-        setTimeout(() => {
-            isAnimate.value = false;
-        }, 600);
-    };
-
-    onUpdated(() => {
-        console.log('Component updated');
-    });
+    //     setTimeout(() => {
+    //         isAnimate.value = false;
+    //     }, 600);
+    // };
 
     onMounted(() => {
         window.addEventListener('scroll', handleScroll);
@@ -40,43 +37,43 @@
     });
 
 
-    const buttonClass = 'hover:text-white hover:scale-110 text-gray-300 py-1 px-3 cursor-pointer transition-all duration-300 hover:bg-gray-600 rounded';
+    const buttonClass = 'hover:text-white hover:scale-110  py-1 px-3 cursor-pointer transition-all duration-300 hover:bg-pink rounded';
 </script>
 
 <template>
     <div :class="[
-        'sticky top-0 w-full h-25 bg-gray-800 text-white flex items-center justify-between  transition-all duration-300 px-75 z-1000',
+        'sticky top-0 w-full h-25 bg-dark text-beige flex items-center justify-between  transition-all duration-300 px-75 z-1000',
         { 'opacity-90': isScrolled, 'opacity-100': !isScrolled }
     ]">
-        <h1 class="text-2xl font-bold text-white cursor-pointer" @click="moving('/')">Gray's Work</h1>
+        <h1 class="text-2xl font-bold  cursor-pointer" @click="navigateTo('/')">Gray's Work</h1>
 
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-4 ">
             <!-- 背景遮罩 -->
             <div v-if="isAnimate" 
                  :class="['fixed inset-0 top-25 z-50',{'animate-page-transition': isAnimate}]">
             </div>
 
             <button 
-                :class="[[buttonClass],{'bg-gray-700': nowRoute === '/portfolio'}]"
-                @click="moving('/portfolio')"
+                :class="[[buttonClass],{'bg-pink': nowRoute === '/portfolio'}]"
+                @click="navigateTo('/portfolio')"
             >
                 Portfolio
             </button>
             <button                 
-                :class="[[buttonClass],{'bg-gray-700': nowRoute === '/diary'}]"
-                @click="moving('/diary')"
+                :class="[[buttonClass],{'bg-pink': nowRoute === '/diary'}]"
+                @click="navigateTo('/diary')"
             >
                 Diary
             </button>
             <button                 
-                :class="[[buttonClass],{'bg-gray-700': nowRoute === '/aboutme'}]" 
-                @click="moving('/aboutme')"
+                :class="[[buttonClass],{'bg-pink': nowRoute === '/aboutme'}]" 
+                @click="navigateTo('/aboutme')"
             >
                 About Me
             </button>
             <button                 
-                :class="[[buttonClass],{'bg-gray-700': nowRoute === '/aboutthissite'}]"
-                @click="moving('/aboutthissite')"
+                :class="[[buttonClass],{'bg-pink': nowRoute === '/aboutthissite'}]"
+                @click="navigateTo('/aboutthissite')"
             >
                 About This Site
             </button>

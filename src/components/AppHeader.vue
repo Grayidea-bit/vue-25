@@ -13,20 +13,6 @@
         isScrolled.value = window.scrollY > 0;
     };
 
-    // const moving = async (goal: string) => {
-    //     if (nowRoute.value === goal) return;
-    //     isAnimate.value = true;
-    
-    //     setTimeout(() => {
-    //         router.push(goal);
-    //         // isAnimate.value = false;
-    //     }, 300);
-
-    //     setTimeout(() => {
-    //         isAnimate.value = false;
-    //     }, 600);
-    // };
-
     onMounted(() => {
         window.addEventListener('scroll', handleScroll);
     });

@@ -17,7 +17,7 @@
         height?: string,
     }>(), {
         title: 'Hero Title',
-        backgroundImage: '/herobg.jpg',
+        backgroundImage: '/herobg Medium.jpeg',
         textColor: 'text-white',
         bgTransparencyLevel: 80,
         height: 'h-100',

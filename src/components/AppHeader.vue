@@ -1,11 +1,10 @@
 <script setup lang="ts">
     import { ref, onMounted, onUnmounted, computed } from 'vue';
-    import { useRouter, useRoute } from 'vue-router';
+    import { useRoute } from 'vue-router';
     import { usePageTransition } from '@utils/usePageNavigator'
 
     const isScrolled = ref(false);
     const { isAnimate, navigateTo } = usePageTransition();
-    const router = useRouter();
     const route = useRoute();
 
     const nowRoute = computed(() => route.path);
